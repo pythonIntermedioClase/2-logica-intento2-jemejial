@@ -21,12 +21,6 @@ from src.utils import formatear_reporte_valor
 from src.utils import mostrar_resultado
 from src.utils import generar_ficha_contribuyente
 
-from src.utils import limpiar_nit
-from src.utils import validar_nit
-from src.utils import normalizar_texto
-from src.utils import procesar_nit
-from src.utils import pipeline_nit
-
 from src.utils import esta_al_dia
 from src.utils import aplicar_descuento
 from src.utils import asignar_prioridad
@@ -72,11 +66,12 @@ from src.utils import buscar_por_nit
 def menu_funciones_basicas():
     """Sección 1: funciones y procedimientos con tipos simples."""
     print("\n--- Funciones básicas ---")
-
-    # TODO: descomenta cuando hayas completado calcular_iva
-    # valor = 1_500_000
-    # iva = calcular_iva(valor)
+    valor = 1500000
+    iva = calcular_iva(valor)
+    print (iva)
     # mostrar_resultado("IVA sobre $1,500,000", iva)
+    
+     # TODO: descomenta cuando hayas completado calcular_iva
 
     # TODO: descomenta cuando hayas completado formatear_reporte_valor
     # linea = formatear_reporte_valor("900123456", "Empresa ABC S.A.S.", 1_500_000, "ACTIVO")

@@ -92,6 +92,8 @@ DECLARACIONES = [
 # ---------------------------------------------------------------------------
 
 def calcular_iva(valor_base, tasa=0.19):
+    
+    return valor_base*tasa
     """
     Calcula el IVA sobre un valor base.
 
