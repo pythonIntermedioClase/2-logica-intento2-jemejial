@@ -21,6 +21,10 @@ from src.utils import formatear_reporte_valor
 from src.utils import mostrar_resultado
 from src.utils import generar_ficha_contribuyente
 
+from src.utils import limpiar_nit
+from src.utils import validar_nit
+from src.utils import procesar_nit
+
 from src.utils import esta_al_dia
 from src.utils import aplicar_descuento
 from src.utils import asignar_prioridad
@@ -69,6 +73,25 @@ def menu_funciones_basicas():
     valor = 1500000
     iva = calcular_iva(valor)
     print (iva)
+    
+    
+    print("\n--- Esto es un salto de línea para ver función limpiar_nit()---")
+    
+    print(limpiar_nit("900-123-456"))
+    print(limpiar_nit("900.123.456"))
+    print(limpiar_nit("900123456")) 
+    
+    print("\n--- Esto es un salto de línea para ver función validar_nit()---")
+    
+    print("900123456 is ", validar_nit("900123456")) 
+    print("900-123-456 is ",validar_nit("900-123-456")) 
+    print("ABC123 is ", validar_nit("ABC123"))       
+    print("123 is ",validar_nit("123"))          
+    
+    print("\n--- Esto es un salto de línea para ver función procesar_nit()---")
+    print(procesar_nit("900-123-456") )
+    print(procesar_nit("ABC-123"))   
+    
     # mostrar_resultado("IVA sobre $1,500,000", iva)
     
      # TODO: descomenta cuando hayas completado calcular_iva

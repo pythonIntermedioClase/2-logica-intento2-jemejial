@@ -208,15 +208,15 @@ def generar_ficha_contribuyente(nit, nombre, municipio, periodo, valor, estado):
 # ---------------------------------------------------------------------------
 
 def limpiar_nit(nit):
+    sin_guiones = nit.replace("-", "")
+    sin_puntos = sin_guiones.replace(".", "") 
+    return sin_puntos
     """
     Elimina guiones y puntos de un NIT.
-
     Args:
         nit (str): NIT posiblemente con guiones o puntos.
-
     Returns:
         str: NIT sin guiones ni puntos.
-
     Ejemplos:
         limpiar_nit("900-123-456")  -> "900123456"
         limpiar_nit("900.123.456")  -> "900123456"
@@ -230,8 +230,11 @@ def limpiar_nit(nit):
     # 3. Retorna sin_puntos.
     pass
 
-
 def validar_nit(nit):
+    nit_limpio = limpiar_nit(nit)
+    solo_digitos = nit_limpio.isdigit()
+    longitud_valida = len(nit_limpio) >= 9 and len(nit_limpio) <= 10
+    return solo_digitos and longitud_valida
     """
     Valida que un NIT tenga el formato correcto.
 
@@ -287,6 +290,13 @@ def normalizar_texto(texto):
 
 
 def procesar_nit(nit):
+    nit_limpio = limpiar_nit(nit)
+    es_valido = validar_nit(nit_limpio)
+    if es_valido:
+        mensaje = f"NIT {nit_limpio}: válido"
+    else:
+        mensaje = f"NIT {nit}: INVÁLIDO"
+    return mensaje
     """
     Limpia y valida un NIT. Retorna un mensaje con el resultado.
 
